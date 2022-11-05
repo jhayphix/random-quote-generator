@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+:root {
+  --dark-thicker-color: rgba(26, 44, 46);
+  --dark-thick-color: rgba(30, 37, 47);
+  --dark-color: rgba(31, 38, 48);
+  --dark-light-color: rgba(49, 58, 72);
+  --green-color: rgba(47, 254, 179);
+  --light-color: rgba(248, 249, 250);
+  --transition: all 0.3s ease-in-out;
+  --border-radius: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background: var(--dark-color);
+  color: var(--light-color);
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 
+*************************************
+Custom Layout Containers ************************
+*************************************
+*/
+
+/* 
+*************************************
+Custom Define Background Colors ************************
+*************************************
+*/
+.j-bg-dark-thicker {
+  background-color: var(--dark-thicker-color) !important;
+}
+.j-bg-dark-thick {
+  background-color: var(--dark-thick-color) !important;
+}
+.j-bg-dark {
+  background-color: var(--dark-color) !important;
+}
+.j-bg-dark-light {
+  background-color: var(--dark-light-color) !important;
+}
+.j-bg-secondary {
+  background-color: var(--green-color) !important;
+}
+.j-bg-light {
+  background-color: var(--light-color) !important;
+}
+/* 
+*************************************
+Custom Define Colors *************************************
+*************************************
+*/
+.j-text-dark-thicker {
+  color: var(--dark-thicker-color) !important;
+}
+.j-text-dark-thick {
+  color: var(--dark-thick-color) !important;
+}
+.j-text-dark {
+  color: var(--dark-color) !important;
+}
+.j-text-dark-light {
+  color: var(--dark-light-color) !important;
+}
+.j-text-secondary {
+  color: var(--green-color) !important;
+}
+.j-text-light {
+  color: var(--light-color) !important;
+}
+
+/* 
+*************************************
+Custom Define Btns *************************************
+*************************************
+*/
+.j-btn-secondary {
+  background-color: var(--green-color) !important;
+  color: var(--dark-thicker-color) !important;
+}
+.j-btn-outline-secondary {
+  border: 1px solid var(--green-color) !important;
+  color: var(--green-color) !important;
+}
+
+/* 
+*************************************
+Custom Utils *************************************
+*************************************
+*/
+.j-rounded {
+  border-radius: var(--border-radius);
+}
+
+.j-quote-spacing {
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  word-spacing: 5px;
+}
+
+.j-cursor-pointer {
+  cursor: pointer;
+}
+
+.j-light-link {
+  cursor: pointer;
+}
+.j-light-link:hover {
+  color: var(--green-color) !important;
+}
+
+/* 
+*************************************
+Card *************************************
+*************************************
+*/
+.control-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: 2px solid transparent;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  bottom: calc(-50px * 0.5);
+  transition: var(--transition);
+  cursor: pointer;
+  user-select: none;
+}
+.play-pause-btn-container {
+  background-color: var(--green-color);
+  color: var(--dark-thicker-color);
+  left: calc(50% - 25px);
 }
 
-.App-link {
-  color: #61dafb;
+.play-pause-btn-container:hover {
+  background-color: initial;
+  color: var(--green-color);
+  border: 2px solid var(--green-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Both Next and Prev */
+.next-quote-btn.disabled,
+.prev-quote-btn.disabled {
+  border: 2px solid gray !important;
+  color: gray !important;
+  cursor: default;
+}
+.next-quote-btn.disabled:hover,
+.prev-quote-btn.disabled:hover {
+  background: initial !important;
+  color: gray !important;
+}
+.next-quote-btn,
+.prev-quote-btn {
+  background-color: initial;
+  color: var(--green-color);
+  border: 2px solid var(--green-color);
+}
+.next-quote-btn:hover,
+.prev-quote-btn:hover {
+  background-color: var(--green-color);
+  color: var(--dark-thicker-color);
+  border: none;
+}
+
+/* Next Btn */
+.next-quote-btn {
+  left: calc(65% - 25px);
+}
+
+/* Prev Btn */
+.prev-quote-btn {
+  left: calc(35% - 25px);
 }
